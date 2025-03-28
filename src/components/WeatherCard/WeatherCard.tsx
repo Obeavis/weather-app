@@ -73,7 +73,7 @@ const WeatherCard = ({ queryKey, location, classname, showError }: WeatherCardPr
 							{weather?.weather[0]?.icon && (
 								<img
 									className="w-14 h-14"
-									src={`https://openweathermap.org/img/wn/${weather?.weather[0]?.icon}@2x.png`}
+									src={`${import.meta.env.VITE_OPEN_WEATHER_ICON_URL}/${weather?.weather[0]?.icon}@2x.png`}
 									alt={weather?.weather[0].description}
 								/>
 							)}
