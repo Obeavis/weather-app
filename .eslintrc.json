@@ -1,0 +1,16 @@
+{
+	"extends": [
+		"next/core-web-vitals",
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"rules": {
+		"indent": ["error", "tab"],
+		"@typescript-eslint/indent": ["error", "tab"],
+		"no-tabs": "off",
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"]
+	}
+}
