@@ -24,5 +24,8 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
+    globals: {
+      "vitest": true
+    },
   },
 )

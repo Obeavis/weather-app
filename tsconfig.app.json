@@ -10,7 +10,7 @@
 		"paths": {
 			"@/*": ["./src/*"]
 		},
-		"types": ["vitest/globals"],
+		"types": ["vitest/globals", "@testing-library/jest-dom"],
 
 		/* Bundler mode */
 		"moduleResolution": "bundler",
@@ -27,5 +27,5 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true
 	},
-	"include": ["src/**/*"]
+	"include": ["src", ]
 }

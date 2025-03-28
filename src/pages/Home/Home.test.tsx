@@ -19,7 +19,7 @@ vi.mock("@/libs/cities", () => ({
 describe("Home", () => {
 	const Component = createWrapper(<Home />);
 
-	(useGeolocation as vi.Mock).mockReturnValue({
+	(useGeolocation as jest.Mock).mockReturnValue({
 		location: { lat: -30.0614, lon: -51.1508 },
 		error: null,
 	});
@@ -52,7 +52,7 @@ describe("Home", () => {
 	});
 
 	it("should display an error message if geolocation fails", async () => {
-		(useGeolocation as vi.Mock).mockReturnValue({
+		(useGeolocation as jest.Mock).mockReturnValue({
 			location: null,
 			error: "Geolocation error",
 		});

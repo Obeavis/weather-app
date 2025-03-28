@@ -17,7 +17,7 @@ describe("WeatherCard", () => {
 	const Component = createWrapper(<WeatherCard queryKey="weather" location={mockLocation} />);
 
 	it("should render loading state correctly", () => {
-		(useLocationWeatherData as vi.Mock).mockReturnValue({
+		(useLocationWeatherData as jest.Mock).mockReturnValue({
 			weather: null,
 			isLoading: true,
 			weatherError: null,
@@ -26,11 +26,11 @@ describe("WeatherCard", () => {
 
 		render(<Component />);
 
-		expect(screen.getByRole("status")).toBeInTheDocument(); // Assuming Spinner has role="status"
+		expect(screen.getByRole("status")).toBeInTheDocument();
 	});
 
 	it("should render weather data correctly", async () => {
-		(useLocationWeatherData as vi.Mock).mockReturnValue({
+		(useLocationWeatherData as jest.Mock).mockReturnValue({
 			weather: {
 				main: {
 					temp: 25,
@@ -51,18 +51,17 @@ describe("WeatherCard", () => {
 
 		render(<Component />);
 
-		// Verificar se os dados do clima estão sendo exibidos corretamente
 		expect(screen.getByText("Porto Alegre")).toBeInTheDocument();
 		expect(screen.getByText("Clear sky")).toBeInTheDocument();
 		expect(screen.getByText("25")).toBeInTheDocument();
-		expect(screen.getByText("30°")).toBeInTheDocument(); // Temp max
-		expect(screen.getByText("20°")).toBeInTheDocument(); // Temp min
+		expect(screen.getByText("30°")).toBeInTheDocument();
+		expect(screen.getByText("20°")).toBeInTheDocument();
 		expect(screen.getByText("Pressure 1013 hPa")).toBeInTheDocument();
 		expect(screen.getByText("5 m/s")).toBeInTheDocument();
 	});
 
 	it("should render error state correctly", async () => {
-		(useLocationWeatherData as vi.Mock).mockReturnValue({
+		(useLocationWeatherData as jest.Mock).mockReturnValue({
 			weather: null,
 			isLoading: false,
 			weatherError: "Geolocation error",
@@ -82,7 +81,7 @@ describe("WeatherCard", () => {
 		const toastError = vi.fn();
 		vi.stubGlobal("toast", { error: toastError });
 
-		(useLocationWeatherData as vi.Mock).mockReturnValue({
+		(useLocationWeatherData as jest.Mock).mockReturnValue({
 			weather: null,
 			isLoading: false,
 			weatherError: "Geolocation error",
