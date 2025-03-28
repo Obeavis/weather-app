@@ -1,54 +1,105 @@
-# React + TypeScript + Vite
+# Weather App 🌦️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A weather forecast application that displays weather information for the user's current location and predefined cities.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live demo here: [Weather App Live Demo](https://weather-app-nine-mu-15.vercel.app/)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features 📋
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Displays weather information for the user's current location.
+- Shows weather data for predefined cities like Joinville, San Francisco, and Urubici.
+- Handles geolocation errors with notifications.
+- Responsive and visually appealing interface.
+
+---
+
+## Technologies Used 🚀
+
+- **React**: Library for building the user interface.
+- **Vite**: Fast build tool for development.
+- **TypeScript**: Superset of JavaScript for static typing.
+- **React Query**: For asynchronous state management.
+- **React Toastify**: For displaying notifications.
+- **TailwindCSS**: For styling the interface.
+- **Testing Library**: For testing React components.
+- **Vitest**: Testing framework.
+
+---
+
+## Prerequisites 📦
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (version 16 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+---
+
+## How to Run the Project ⚙️
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Obeavis/weather-app.git
+```
+### 2. Navigate to the project directory
+```bash
+cd weather-app
+```
+### 3. Install dependencies
+Using npm:
+```bash
+npm install
+```
+Or using yarn:
+```bash
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 4. Start the development server
+Using npm:
+```bash
+npm run dev
+```
+Or using yarn:
+```bash
+yarn dev
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The project will be available at http://localhost:3000.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 5. Running Tests 🧪
+
+To run the tests, use the following command:
+
+Using npm:
+```bash
+npm run test
+```
+Or using yarn:
+```bash
+yarn test
+```
+
+### 5. Folder Structure 📁 
+```bash
+src/
+├── api/              # API configuration
+├── components/       # Reusable components
+├── hooks/            # Custom hooks
+├── libs/             # Utility functions and static data
+├── pages/            # Main application pages
+├── services/         # The data services
+```
+### Environment Variables
+Make sure to configure the environment variables in a .env file at the root of the project. Example:
+
+```bash
+VITE_OPEN_WEATHER_KEY=your_api_key_here
+VITE_OPEN_WEATHER_GEOCODING_API_URL=https://api.openweathermap.org/geo/1.0
+VITE_OPEN_WEATHER_API_URL=https://api.openweathermap.org/data/2.5
+VITE_OPEN_WEATHER_ICON_URL=https://openweathermap.org/img/wn/
 ```
